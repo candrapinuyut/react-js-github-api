@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Clean Architecture React.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Architecture use hexagonal architecture (https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 
 ## Available Scripts
 
