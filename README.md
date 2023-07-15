@@ -1,7 +1,7 @@
 # Clean Architecture React.js
 
 This Architecture use hexagonal architecture (https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
-
+![alt text](https://www.happycoders.eu/wp-content/uploads/2023/01/hexagonal-architecture-with-control-flow.v4-800x474.png)
 ## Available Scripts
 
 In the project directory, you can run:
