@@ -3,16 +3,31 @@ The GitHub User Search application is a tool that allows users to search for Git
 This project is an experiment in applying clean architecture with React.
 
 ## Features
-
-1.User Search
+- User Search
 Users can enter a username in the search bar, and the application will fetch information about the user from the GitHub API
-2.Repository
+- Repository
 Once a user is selected from the search results, the application displays a list of their repositories. Users can browse through the repositories and view essential details such as the repository name, description, stars;
 
 ## Architecture
-
-This Architecture use hexagonal architecture (https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 ![alt text](https://www.happycoders.eu/wp-content/uploads/2023/01/hexagonal-architecture-with-control-flow.v4-800x474.png)
+Hexagonal Architecture, also known as Ports and Adapters architecture or the Onion Architecture, is a software architectural pattern that emphasizes loose coupling, modularity, and testability. It was introduced by Alistair Cockburn and promotes the separation of concerns in a system.
+The main idea behind Hexagonal Architecture is to decouple the core business logic of an application from external dependencies such as databases, user interfaces, or external services. This decoupling is achieved by dividing the system into several concentric layers or hexagons, each responsible for specific functionality.
+(https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
+
+## Models 
+- Users
+- UserRepo
+## Repositories
+- githubRepositories
+## DataSources
+- githubAPIDatasource
+- githubDataSource
+## UseCases
+- useFetchGithubRepo
+- useFetchGithubUsers
+## Services 
+- http
+
 ## Available Scripts
 
 In the project directory, you can run:
