@@ -26,22 +26,28 @@ export function UserList(props:TypeUserListProps) {
  
     return  name && (
         <>
-            <div className='my-4'>Showing users of {name}</div>
+            {
+             !isFetchUsersLoading && results && results.length!=0 &&(
+                 <div className='my-4'>Showing users of {name}</div>
+             )
+            }
             
-            { isFetchUsersError && (<div>terjadi kesalahan...</div>) }
+            { isFetchUsersError && (<div>something error...</div>) }
 
             {
                 !isFetchUsersLoading && results && name && results.length===0 && (
                 <div className="w-full flex flex-row justify-end mt-2">
                     <div className="rounded p-4 bg-red-200 w-full">
-                        <div className="flex flex-col  text-center">
-                            <span>Mohon Maaf user tidak memiliki repos {name}</span>
+                        <div className="flex flex-row justify-center">
+                            <Icon name='face-frown' />
+                            <span>
+                                Sorry, the user you are looking for could not be found</span>
                         </div>
                     </div>
                 </div>  
                 )
             }
-           { isFetchUsersLoading && (<Loading/>)}
+           { isFetchUsersLoading && (<div className="mt-2"><Loading/></div>)}
     
             {
             !isFetchUsersLoading  &&
@@ -71,7 +77,7 @@ export function UserList(props:TypeUserListProps) {
                         <div className="w-full flex flex-row justify-end mt-2">
                             <div className="rounded p-4 bg-red-200 w-11/12">
                                 <div className="flex flex-col  items-end">
-                                    <span>Mohon Maaf user tidak memiliki repo</span>
+                                    <span>Sorry, this user doesn't have a repo</span>
                                 </div>
                             </div>
                         </div>

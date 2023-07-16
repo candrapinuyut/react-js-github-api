@@ -9,8 +9,6 @@ import { useFetchUsers } from "../../../domain/usecases/github/useFetchGithubUse
 type FormType = {
     name:string,
 }
-
- 
 export function Github(){
     
     const { register, handleSubmit,watch, formState: { errors } } = useForm<FormType>(); 
@@ -26,12 +24,10 @@ export function Github(){
         setName(form.name)
         refetch()
     }   
- 
+     
     const handleOpenRepo =(login:string):void=>
       setIsOpen((login===isOpen)?'':login)
-  
- 
- 
+
     return(
         <>
          <div className="container mx-auto h-screen">

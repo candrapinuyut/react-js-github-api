@@ -1,13 +1,11 @@
 import { render,fireEvent, screen } from '@testing-library/react';
-import { Github } from '../../../UI/page/Github';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { act } from "react-dom/test-utils";
-  
-
+import App from '../App';
 const queryClient = new QueryClient();
-const LoginCom=(
+const AppCom=(
     <QueryClientProvider client={queryClient}>
-    <Github/>
+    <App/>
     </QueryClientProvider> 
 )
 function stringGen(len:number) {
@@ -26,11 +24,11 @@ const mainForm='main-form';
 
 describe('Render main page',() => {
     it('Render the github page',()=>{
-        const {getByTestId} = render(LoginCom)
+        const {getByTestId} = render(AppCom)
         expect(getByTestId('main-input')).toBeInTheDocument()
     })
     it('Render all form,input,button',()=>{
-        const {getByTestId} = render(LoginCom)
+        const {getByTestId} = render(AppCom)
 
         expect(getByTestId('main-input')).toBeInTheDocument()
         expect(getByTestId('main-btn')).toBeInTheDocument()
@@ -39,7 +37,7 @@ describe('Render main page',() => {
 });
 describe("Form behaviour",  () => {
     it('validate user inputs, and provides error empty messages', async () => {
-        const {getByTestId,queryByText} = render(LoginCom)
+        const {getByTestId,queryByText} = render(AppCom)
         await act (async()=>{
             //testing for empty input
             fireEvent.change(screen.getByTestId(mainInput),{target:{value:''}})
@@ -50,7 +48,7 @@ describe("Form behaviour",  () => {
         expect(queryByText("please input of a github username")).toBeInTheDocument();
     })
     it('validate user inputs, and provides error messages when input >= 39 character', async () => {
-        const {getByTestId,queryByText} = render(LoginCom)
+        const {getByTestId,queryByText} = render(AppCom)
         await act (async()=>{
             //testing for empty input
             let randomStr= stringGen(40)
@@ -62,7 +60,7 @@ describe("Form behaviour",  () => {
         expect(queryByText("maximum of username lenghth is 39")).toBeInTheDocument();
     })
     it('should be input and button search as disabled during a search', async () => {
-        const {getByTestId} = render(LoginCom)
+        const {getByTestId} = render(AppCom)
         await act (async()=>{
             //testing for empty input
             let randomStr= stringGen(4)
@@ -74,13 +72,7 @@ describe("Form behaviour",  () => {
         expect (getByTestId(mainBtn).closest('button')).toHaveAttribute('disabled')
         expect (getByTestId(mainInput).closest('input')).toHaveAttribute('disabled')
      })
-     it("testing search",async()=>{
-        const data = [
-            {login:'candrapinuyut'},
-            {login:'candrapinuyut94'},
-        ]
-        const mock = jest.spyOn(data, "getCharacter").mockResolvedValue("Bob");
 
-     })
+ 
 
 })
