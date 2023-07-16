@@ -2,14 +2,14 @@
 The GitHub User Search application is a tool that allows users to search for GitHub usernames and retrieve information about their repositories. By leveraging the power of the GitHub API, this application provides a seamless and efficient way to explore users and their public repositories.
 This project is an experiment in applying clean architecture with React.
 
-#Features
+## Features
 
 1.User Search
 Users can enter a username in the search bar, and the application will fetch information about the user from the GitHub API
 2.Repository
 Once a user is selected from the search results, the application displays a list of their repositories. Users can browse through the repositories and view essential details such as the repository name, description, stars;
 
-#Architecture
+## Architecture
 
 This Architecture use hexagonal architecture (https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 ![alt text](https://www.happycoders.eu/wp-content/uploads/2023/01/hexagonal-architecture-with-control-flow.v4-800x474.png)
